@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Submarines and Mermaids"
+run/main_scene="uid://cq7mf34to5qq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [global_group]
 
-red=""
 blue=""
+red=""
 
 [physics]
 
