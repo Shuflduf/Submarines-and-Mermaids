@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sprite: Sprite2D = $Sprite2D
 @export var target_team: StringName
 
 func _physics_process(_delta: float) -> void:
@@ -8,6 +9,7 @@ func _physics_process(_delta: float) -> void:
 		look_at(closest.position)
 	
 	velocity = Vector2.RIGHT.rotated(rotation) * 100
+	sprite.flip_v = velocity.x < 0.0
 
 	move_and_slide()
 

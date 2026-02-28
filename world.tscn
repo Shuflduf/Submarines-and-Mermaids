@@ -6,10 +6,12 @@
 [node name="World" type="Node2D" unique_id=1251884942]
 
 [node name="Submarine" parent="." unique_id=2004177460 groups=["blue"] instance=ExtResource("1_f3sb7")]
+modulate = Color(0.1333332, 0, 1, 1)
 position = Vector2(241, 504)
 target_team = &"red"
 
 [node name="Submarine2" parent="." unique_id=1198490584 groups=["red"] instance=ExtResource("1_f3sb7")]
+modulate = Color(1, 0, 0, 1)
 position = Vector2(999, 139)
 target_team = &"blue"
 
