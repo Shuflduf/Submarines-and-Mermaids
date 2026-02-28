@@ -14,6 +14,11 @@ config/name="Submarines and Mermaids"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+red=""
+blue=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
