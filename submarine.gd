@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var target_team: StringName
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var closest = closest_enemy()
 	if closest:
 		look_at(closest.position)

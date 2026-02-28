@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cq7mf34to5qq"]
 
 [ext_resource type="PackedScene" uid="uid://qill4e3bmjal" path="res://submarine.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://cuqqfyq83p8eg" path="res://camera.gd" id="2_fj7yv"]
 
 [node name="World" type="Node2D" unique_id=1251884942]
 
@@ -11,3 +12,6 @@ target_team = &"red"
 [node name="Submarine2" parent="." unique_id=1198490584 groups=["red"] instance=ExtResource("1_f3sb7")]
 position = Vector2(999, 139)
 target_team = &"blue"
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1358181607]
+script = ExtResource("2_fj7yv")
