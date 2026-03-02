@@ -6,16 +6,26 @@ extends CharacterBody2D
 
 var health = 50
 
-func _physics_process(_delta: float) -> void:
+func _ready() -> void:
+	await get_tree().physics_frame
+	var closest = closest_enemy()
+	if closest:
+		var target_dir = position.direction_to(closest.position)
+		rotation = atan2(target_dir.y, target_dir.x)
+
+
+func _physics_process(delta: float) -> void:
 	if get_parent().paused: return
 	
 	var closest = closest_enemy()
 	if closest:
-		look_at(closest.position)
+		var target_dir = position.direction_to(closest.position)
+		var target_rot = atan2(target_dir.y, target_dir.x)
+		rotation = lerp_angle(rotation, target_rot, delta)
 	
 		var dist = position.distance_to(closest.position)
 		if dist > 200.0:
-			velocity = Vector2.RIGHT.rotated(rotation) * 300
+			velocity = Vector2.RIGHT.rotated(rotation) * 500
 		else:
 			velocity = Vector2.ZERO
 			if timer.is_stopped() and closest:
