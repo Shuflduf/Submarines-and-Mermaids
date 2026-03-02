@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var timer: Timer = $Timer
 @export var target_team: StringName
-@export var torpedo_scene: PackedScene
 
-var health = 100
+var health = 500
 
 func _physics_process(_delta: float) -> void:
 	if get_parent().paused: return
@@ -15,21 +13,13 @@ func _physics_process(_delta: float) -> void:
 		look_at(closest.position)
 	
 		var dist = position.distance_to(closest.position)
-		if dist > 2000.0:
-			velocity = Vector2.RIGHT.rotated(rotation) * 200
-		elif dist < 800.0:
-			velocity = Vector2.RIGHT.rotated(rotation) * -100
+		if dist > 300.0:
+			velocity = Vector2.RIGHT.rotated(rotation) * 100
 		else:
 			velocity = Vector2.ZERO
-			if timer.is_stopped():
-				var new_torpedo = torpedo_scene.instantiate()
-				new_torpedo.position = position
-				new_torpedo.rotation = rotation
-				new_torpedo.shooter = self
-				get_parent().add_child(new_torpedo)
-				timer.start()
 	else:
 		velocity = Vector2.ZERO
+
 		
 	sprite.flip_v = (rotation > PI / 2.0 or rotation < -PI / 2.0)
 

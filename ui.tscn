@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://enmv25cfxlf2"]
+
+[ext_resource type="Script" uid="uid://dt71tbiglpenu" path="res://ui.gd" id="1_fyqef"]
+
+[node name="UI" type="Control" unique_id=989318940]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fyqef")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=466521438]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer" unique_id=1629499554]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Submarine"
+popup/item_0/id = 0
+popup/item_1/text = "Mermaid"
+popup/item_1/id = 1
+popup/item_2/text = "Whale"
+popup/item_2/id = 2
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1803638514]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Red"
+
+[node name="Clear" type="Button" parent="HBoxContainer" unique_id=1844125549]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Clear"
+
+[node name="Paused" type="Button" parent="HBoxContainer" unique_id=289466297]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pause"
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="HBoxContainer/Paused" to="." method="_on_paused_pressed"]
