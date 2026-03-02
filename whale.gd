@@ -1,9 +1,10 @@
 extends CharacterBody2D
+@onready var timer: Timer = $Timer
 
 @onready var sprite: Sprite2D = $Sprite2D
 @export var target_team: StringName
 
-var health = 500
+var health = 200
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -14,24 +15,27 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	sprite.flip_v = (rotation > PI / 2.0 or rotation < -PI / 2.0)
+
 	if get_parent().paused: return
 	
 	var closest = closest_enemy()
 	if closest:
 		var target_dir = position.direction_to(closest.position)
 		var target_rot = atan2(target_dir.y, target_dir.x)
-		rotation = lerp_angle(rotation, target_rot, delta * 0.2)
+		rotation = lerp_angle(rotation, target_rot, delta * 0.5)
 	
 		var dist = position.distance_to(closest.position)
-		if dist > 300.0:
-			velocity = Vector2.RIGHT.rotated(rotation) * 100
+		if dist > 600.0:
+			velocity = Vector2.RIGHT.rotated(rotation) * 150
 		else:
 			velocity = Vector2.ZERO
+			if timer.is_stopped() and closest:
+				closest.damage(5)
+				timer.start()
 	else:
 		velocity = Vector2.ZERO
-
-		
-	sprite.flip_v = (rotation > PI / 2.0 or rotation < -PI / 2.0)
+					
 
 	move_and_slide()
 
@@ -44,6 +48,7 @@ func closest_enemy() -> Node2D:
 			closest_dist = enemy_dist
 			closest = enemy
 	return closest
+
 
 func damage(amount: int):
 	health -= amount

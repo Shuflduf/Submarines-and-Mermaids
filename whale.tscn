@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckvuuppvx6mfy"]
 
 [ext_resource type="Script" uid="uid://ceqgien7r71hx" path="res://whale.gd" id="1_v43gg"]
-[ext_resource type="Texture2D" uid="uid://dq410xqct1lb8" path="res://whale.jpg" id="3_d3rs6"]
+[ext_resource type="Texture2D" uid="uid://dwms377byrgud" path="res://dcsucpf-12c17957-3404-4ca5-a90b-8984df26b245.png" id="2_v43gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3rs6"]
 size = Vector2(754, 430)
@@ -13,5 +13,10 @@ script = ExtResource("1_v43gg")
 shape = SubResource("RectangleShape2D_d3rs6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=762806590]
-scale = Vector2(3.342222, 1.8933333)
-texture = ExtResource("3_d3rs6")
+scale = Vector2(1.4100001, 1.4978355)
+texture = ExtResource("2_v43gg")
+flip_h = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1906074013]
+wait_time = 0.1
+one_shot = true

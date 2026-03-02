@@ -15,6 +15,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	sprite.flip_v = (rotation > PI / 2.0 or rotation < -PI / 2.0)
+
 	if get_parent().paused: return
 	
 	var closest = closest_enemy()
@@ -24,18 +26,16 @@ func _physics_process(delta: float) -> void:
 		rotation = lerp_angle(rotation, target_rot, delta)
 	
 		var dist = position.distance_to(closest.position)
-		if dist > 200.0:
+		if dist > 400.0:
 			velocity = Vector2.RIGHT.rotated(rotation) * 500
 		else:
 			velocity = Vector2.ZERO
 			if timer.is_stopped() and closest:
-				closest.damage(5)
+				closest.damage(20)
 				timer.start()
 	else:
 		velocity = Vector2.ZERO
 					
-	sprite.flip_v = (rotation > PI / 2.0 or rotation < -PI / 2.0)
-
 	move_and_slide()
 
 func closest_enemy() -> Node2D:

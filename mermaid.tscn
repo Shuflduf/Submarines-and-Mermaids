@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtm2887t8unix"]
 
 [ext_resource type="Script" uid="uid://c7rugti822sue" path="res://mermaid.gd" id="1_tkiuo"]
-[ext_resource type="Texture2D" uid="uid://12rml1tltd46" path="res://icon.svg" id="2_6onr2"]
+[ext_resource type="Texture2D" uid="uid://baahyrjpka3uv" path="res://150px-Drowned_BE2.png" id="2_tkiuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkiuo"]
 size = Vector2(160, 302)
@@ -13,8 +13,9 @@ script = ExtResource("1_tkiuo")
 shape = SubResource("RectangleShape2D_tkiuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=762806590]
-scale = Vector2(1.2486911, 2.359101)
-texture = ExtResource("2_6onr2")
+scale = Vector2(1.1733334, 1.2521008)
+texture = ExtResource("2_tkiuo")
+flip_h = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1851505365]
 one_shot = true

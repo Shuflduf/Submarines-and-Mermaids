@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://qill4e3bmjal"]
 
-[ext_resource type="Texture2D" uid="uid://12rml1tltd46" path="res://icon.svg" id="1_3uq8f"]
 [ext_resource type="Script" uid="uid://bfsbiqevlq1cb" path="res://submarine.gd" id="1_k4f85"]
 [ext_resource type="PackedScene" uid="uid://bbynj5holj6i0" path="res://torpedo.tscn" id="2_qvldv"]
+[ext_resource type="Texture2D" uid="uid://ri5426otv6m1" path="res://pngimg.com - submarine_PNG55.png" id="3_qvldv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4f85"]
-size = Vector2(312, 128)
+size = Vector2(312, 118)
 
 [node name="Submarine" type="CharacterBody2D" unique_id=2004177460]
 script = ExtResource("1_k4f85")
@@ -15,8 +15,9 @@ torpedo_scene = ExtResource("2_qvldv")
 shape = SubResource("RectangleShape2D_k4f85")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=762806590]
-scale = Vector2(2.40625, 1)
-texture = ExtResource("1_3uq8f")
+scale = Vector2(0.19624998, 0.109999985)
+texture = ExtResource("3_qvldv")
+flip_h = true
 
 [node name="Timer" type="Timer" parent="." unique_id=89934303]
 wait_time = 3.0

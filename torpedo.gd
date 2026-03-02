@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if shooter == body:
 		return
-	body.damage(10)
+	body.damage(30)
 	queue_free()
 
 
